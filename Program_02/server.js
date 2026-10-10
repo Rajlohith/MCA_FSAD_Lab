@@ -1,40 +1,30 @@
 const express = require("express");
 
 const app = express();
+const PORT = 3000;
 
-app.use(express.static(__dirname));
+app.use(express.static("."));
 app.use(express.urlencoded({ extended: true }));
 
-// GET
+function sendResponse(data, req, res) {
+    const { name, branch, semester } = data;
+
+    res.send(`
+        <h1>Form Submission (${req.method})</h1>
+        <p>Name: ${name}</p>
+        <p>Branch: ${branch}</p>
+        <p>Semester: ${semester}</p>
+    `);
+}
+
 app.get("/submit-get", (req, res) => {
-
-    const name = req.query.name;
-    const branch = req.query.branch;
-    const semester = req.query.semester;
-
-    res.send(`
-        <h2>Student Information</h2>
-        <p>Name: <b>${name}</b></p>
-        <p>Branch: <u>${branch}</u></p>
-        <p>Semester: ${semester}</p>
-    `);
+    sendResponse(req.query, req, res);
 });
 
-// POST
 app.post("/submit-post", (req, res) => {
-
-    const name = req.body.name;
-    const branch = req.body.branch;
-    const semester = req.body.semester;
-
-    res.send(`
-        <h2>Student Information</h2>
-        <p>Name: <b>${name}</b></p>
-        <p>Branch: <u>${branch}</u></p>
-        <p>Semester: ${semester}</p>
-    `);
+    sendResponse(req.body, req, res);
 });
 
-app.listen(3001, () => {
-    console.log("Server running on port 3001");
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
 });
