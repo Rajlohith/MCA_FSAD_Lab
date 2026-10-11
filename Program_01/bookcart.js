@@ -32,7 +32,7 @@ app.get("/books/:id", (req, res) => {
 app.post("/books", (req, res) => {
 
     const book = {
-        id: req.body.id ?? books.length + 1,
+        id: books.length + 1,
         title: req.body.title,
         author: req.body.author,
         price: req.body.price,
