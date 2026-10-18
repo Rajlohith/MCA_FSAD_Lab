@@ -33,7 +33,7 @@ function Education(props) {
       </tr>
 
       {props.education.map((e) => (
-        <tr key={e.id}>
+        <tr>
           <td>{e.id}</td>
           <td>{e.name}</td>
           <td>{e.place}</td>
@@ -53,10 +53,10 @@ class Resume extends React.Component {
         <ResumeHeader name="Resume Details" />
 
         <div className="info">
-          <p>Name: {data.name}</p>
-          <p>Address: {data.address}</p>
-          <p>Phone No: {data.phone}</p>
-          <p>Email id: {data.email}</p>
+          <p><b>Name:</b> {data.name}</p>
+          <p><b>Address:</b> {data.address}</p>
+          <p><b>Phone No:</b> {data.phone}</p>
+          <p><b>Email id:</b> {data.email}</p>
         </div>
 
         <Education education={data.education} />
