@@ -1,10 +1,5 @@
 import React from "react";
 
-const studlist = [
-  { slno: 1, name: "ABC", usn: "1RV001", tmarks: 96 },
-  { slno: 2, name: "XYZ", usn: "1RV002", tmarks: 85 }
-];
-
 class StudentsTable extends React.Component {
   render() {
     return (
@@ -36,9 +31,9 @@ class StudentForm extends React.Component {
     const form = e.target;
 
     this.props.addStudent({
-      name: form.value,
-      usn: form.value,
-      tmarks: form.value
+      name: form.name.value,
+      usn: form.usn.value,
+      tmarks: form.tmarks.value
     });
   };
 
@@ -56,7 +51,7 @@ class StudentForm extends React.Component {
 }
 
 class App extends React.Component {
-  state = { students: studlist };
+  state = { students: [] };
 
   addStudent = (s) => {
     s.slno = this.state.students.length + 1;
@@ -79,4 +74,3 @@ class App extends React.Component {
 }
 
 export default App;
-
