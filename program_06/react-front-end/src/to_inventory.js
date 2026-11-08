@@ -72,18 +72,12 @@ function AddInventory({ onAdded }) {
     return (
         <div>
             <h1>Add Inventory</h1>
+
             <form onSubmit={SubmitEvent}>
-                <input type="number" name="id" placeholder="ID"
-                    value={form.id} onChange={handleChange} />
-
-                <input type="text" name="prodname" placeholder="Product Name"
-                    value={form.prodname} onChange={handleChange} />
-
-                <input type="number" name="qty" placeholder="Quantity"
-                    value={form.qty} onChange={handleChange} />
-
-                <input type="number" name="price" placeholder="Price"
-                    value={form.price} onChange={handleChange} />
+                <input name="id" placeholder="ID" value={form.id} onChange={handleChange} />
+                <input name="prodname" placeholder="Product Name" value={form.prodname} onChange={handleChange} />
+                <input name="qty" placeholder="Quantity" value={form.qty} onChange={handleChange} />
+                <input name="price" placeholder="Price" value={form.price} onChange={handleChange} />
 
                 <button type="submit">Add Product</button>
             </form>
